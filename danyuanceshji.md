@@ -17,31 +17,41 @@
 3.针对所有的元素重复以上的步骤，除了最后一个。
 4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
 **Java**
+/*
+ * 冒泡排序
+ */
 public class BubbleSort {
+　　
  
-    public static void main(String[] args) {
-        int [] arr = {49、38、65、97、76、13、27、49};
-        bubbleSort(arr,arr.length);
-    }
+   public void BubbleSort(int[] arr){
  
-    public static void bubbleSort(int[] arr, int n) {
-        for (int i=1,len=arr.length;i<len;i++){
-           //标识符，判断这趟排序是否发生位置变化，没有发生，则排序已经完成，无须执行剩下循环
-            Boolean flag=true;
-            for (int j=1;j<len;j++){
-                if (arr[j-1] > arr[j]){
-                    int tmp = arr[j];
-                    arr[j] = arr[j-1];
-                    arr[j-1] = tmp;
-                    flag=false;
-                }
-            }
-            //排序过程打印记录
-            System.out.println(Arrays.toString(arr));
-            if (flag){
-                 return ;
-            }   
-        }
-    }
-}
+　　　　for(int i=0;i<arr.length-1;i++){//外层循环控制排序趟数
+　　　　　　for(int j=0;j<arr.length-1-i;j++){//内层循环控制每一趟排序多少次
+　　　　　　　　if(arr[j]>arr[j+1]){
+　　　　　　　　　　int temp=arr[j];
+　　　　　　　　　　arr[j]=arr[j+1];
+　　　　　　　　　　arr[j+1]=temp;
+　　　　　　　　}
+　　　　　　}
+　　
+        //输出
  
+        System.out.println("排序后数组元素为:");
+        for(int num : arr){
+ 
+           System.out.print( num + "  " );
+ 
+           }
+       }　　
+ 
+ }
+                 
+                 **测试用例**
+
+                  语句覆盖 :  1.arr = {4,3,2,1}
+
+                  判定覆盖 :  1.arr = {1,2,3,4};  2. arr = {4,3,2,1}
+
+                  条件覆盖 :  1.arr = {1,2,3,4};  2. arr = {4,3,2,1}
+
+                  路径覆盖 :  1.arr = {1,2,3,4};  2. arr = {4,3,2,1}
